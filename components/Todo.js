@@ -68,4 +68,9 @@ class Todo {
   }
 }
 
+function renderTodo(values) {
+  const todo = generateTodo(values);
+  todosList.append(todo);
+}
+
 export default Todo;
