@@ -28,6 +28,11 @@ function generateTodo(data) {
   return todoElement;
 }
 
+function renderTodo(data) {
+  const todoElement = generateTodo(data);
+  todosList.prepend(todoElement);
+}
+
 addTodoButton.addEventListener("click", () => {
   openModal(addTodoPopup);
 });
@@ -56,5 +61,5 @@ addTodoForm.addEventListener("submit", (evt) => {
 });
 
 initialTodos.forEach((item) => {
- renderTodo(values);
+ renderTodo(item);
 });
