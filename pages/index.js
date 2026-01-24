@@ -30,7 +30,7 @@ function generateTodo(data) {
 
 function renderTodo(data) {
   const todoElement = generateTodo(data);
-  todosList.prepend(todoElement);
+  todosList.append(todoElement);
 }
 
 addTodoButton.addEventListener("click", () => {
