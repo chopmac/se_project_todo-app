@@ -1,11 +1,13 @@
 class Todo {
-  constructor(data, selector) {
+  constructor(data, templateSelector, onToggleCompleted, onDelete) {
     this._data = data;
     this._name = data.name;
     this._date = data.date;
     this._id = data.id;
     this._completed = data.completed;
-    this._templateSelector = selector;
+    this._onToggleCompleted = onToggleCompleted;
+    this._onDelete = onDelete;
+    this._templateSelector = templateSelector;
   }
 
   _getTemplate() {
@@ -29,11 +31,12 @@ class Todo {
   }
 
   _handleDelete() {
-    this._element.remove();
+    this._onDelete(this._completed);
+    this._element.remove(); 
   }
 
   _handleCheckbox() {
-
+    this._onToggleCompleted(this._completed);
   }
 
   getView() {

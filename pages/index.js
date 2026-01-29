@@ -1,9 +1,9 @@
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
-import FormValidator from '../components/FormValidator.js';
+import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js"; 
-import PopupWithForm from "../components/popupWithForm.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 import TodoCounter from "../components/TodoCounter.js";
 
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
@@ -18,14 +18,14 @@ function generateTodo(data) {
   const todo = new Todo(
     data, 
     "#todo-template", 
-    (completed) => {
+    (isNowCompleted) => {
       
-      todoCounter.updateCompleted(completed);
+      todoCounter.updateCompleted(isNowCompleted);
     }, 
-    () => {
+    (wasCompletedAtDeletion) => {
      
       todoCounter.updateTotal(false);
-      if (data.completed) {
+      if (wasCompletedAtDeletion) {
         todoCounter.updateCompleted(false);
       }
     }
