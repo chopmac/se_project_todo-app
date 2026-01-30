@@ -1,4 +1,4 @@
-class Todo {
+ export default class Todo {
   constructor(data, templateSelector, onToggleCompleted, onDelete) {
     this._data = data;
     this._name = data.name;
@@ -72,4 +72,3 @@ class Todo {
 }
 
 
-export default Todo;
